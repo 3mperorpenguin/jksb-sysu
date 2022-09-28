@@ -99,6 +99,7 @@ def jksb(driver):
 
     result=""
     try:
+        time.sleep(5)
         wait.until(expected_conditions.text_to_be_present_in_element
                    ((By.XPATH, '//div[8]/div/div[1]/div[2]'), "办理成功!"))
         result = driver.find_element_by_xpath('//div[8]/div/div[1]/div[2]').text
