@@ -94,12 +94,11 @@ def jksb(driver):
     logging.info("醒了，看看下一步能不能点了")
     wait.until(expected_conditions.element_to_be_clickable((By.XPATH, "//*[@id='form_command_bar']/li[1]")) ) # 等下一步能点
     logging.info("可以咯，提交健康申报")
-    
+    time.sleep(5)
     driver.find_element_by_xpath('//*[@id="form_command_bar"]/li[1]').click()
 
     result=""
     try:
-        time.sleep(5)
         wait.until(expected_conditions.text_to_be_present_in_element
                    ((By.XPATH, '//div[8]/div/div[1]/div[2]'), "办理成功!"))
         result = driver.find_element_by_xpath('//div[8]/div/div[1]/div[2]').text
